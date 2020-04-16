@@ -14,7 +14,8 @@ import Statistics from './Components/Statistics';
 import Money from './Components/Money';
 import Label from './Components/Label';
 
-
+import x from 'Icons/money.svg';
+console.log(x);
 
 const Wrapper = styled.div`
 display:flex;

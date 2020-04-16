@@ -1,23 +1,8 @@
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import React from 'react';
-import Icon from './Icon';
+import Icon from 'Components/Icon';
 
-
-
-// const NavWrapper = styled.div`
-// border:2px solid blue;
-// text-align: center;
-// nav{
-//   ul{
-//     display: flex;
-//     li{
-//       flex-grow: 1;
-//       padding: 16px;
-//     }
-//   }
-// }
-// `;
 
 const NavWrapper = styled.nav`
 border:2px solid blue;
@@ -27,8 +12,16 @@ box-shadow: 0 0 3px rgba(0,0,0,0.25);
     display: flex;
     li{
       flex-grow: 1;
-      padding: 16px;
+      padding: 4px 0;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .icon{
+        width: 24px;
+        height:24px;
+      }
     }
   }
 `;
