@@ -1,25 +1,66 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+//引入路由相关组件
+import {
+  HashRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from "react-router-dom";
+//引入styled-components相关组件
+import styled from 'styled-components';
+import Nav from './Components/Nav';
+import Nofound from './Components/NoFound';
+import Statistics from './Components/Statistics';
+import Money from './Components/Money';
+import Label from './Components/Label';
+
+
+
+const Wrapper = styled.div`
+display:flex;
+flex-direction: column;
+border:2px solid red;
+height: 100vh;
+
+`;
+
+const Main = styled.div`
+border:2px solid black;
+flex-grow: 1;
+overflow: auto;
+`;
+
+
+
+
+
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Wrapper>
+       <Main>
+        <Switch>
+          <Route path="/money">
+            <Money />
+          </Route>
+          <Route path="/label">
+            <Label />
+          </Route>
+          <Route path="/statistics">
+            <Statistics />
+          </Route>
+          <Redirect exact from="/" to="/money"/>
+          <Route path="*">
+            <Nofound/>
+          </Route>
+        </Switch>
+       </Main>
+       <Nav/>
+      </Wrapper>
+    </Router>
   );
 }
 
