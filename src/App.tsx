@@ -7,42 +7,21 @@ import {
   Redirect
 } from "react-router-dom";
 //引入styled-components相关组件
+import Nofound from './views/NoFound';
+import Statistics from './views/Statistics';
+import Money from './views/Money';
+import Label from './views/Label';
 import styled from 'styled-components';
-import Nav from './Components/Nav';
-import Nofound from './Components/NoFound';
-import Statistics from './Components/Statistics';
-import Money from './Components/Money';
-import Label from './Components/Label';
 
-import x from 'Icons/money.svg';
-console.log(x);
-
-const Wrapper = styled.div`
-display:flex;
-flex-direction: column;
-border:2px solid red;
-height: 100vh;
-
+const AppWrapper = styled.div`
+color:#333;
 `;
-
-const Main = styled.div`
-border:2px solid black;
-flex-grow: 1;
-overflow: auto;
-`;
-
-
-
-
-
-
 
 
 function App() {
   return (
+    <AppWrapper>
     <Router>
-      <Wrapper>
-       <Main>
         <Switch>
           <Route path="/money">
             <Money />
@@ -58,10 +37,8 @@ function App() {
             <Nofound/>
           </Route>
         </Switch>
-       </Main>
-       <Nav/>
-      </Wrapper>
     </Router>
+    </AppWrapper>
   );
 }
 
