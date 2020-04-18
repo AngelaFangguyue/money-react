@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import React from 'react';
 
-const CategorySection = styled.section`
+const Wrapper = styled.section`
 border:2px solid blue;
  font-size: 24px;
  
@@ -28,5 +29,14 @@ border:2px solid blue;
     }
   }
 `;
-
+function CategorySection() {
+return(
+  <Wrapper>
+    <ul>
+    <li className="selected">支出</li>
+    <li>收入</li>
+  </ul>
+  </Wrapper>
+);
+}
 export default CategorySection;
