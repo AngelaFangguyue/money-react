@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import React from 'react';
+import React, {useState} from 'react';
+
 
 const Wrapper = styled.section`
 border:2px solid blue;
@@ -29,13 +30,23 @@ border:2px solid blue;
     }
   }
 `;
-function CategorySection() {
+const CategorySection:React.FC = ()=>{
+  const categoryMap = {'-':"支出",'+':"收入"};
+  const [category,setCategory] = useState<('-'|'+')>('-');
+  const [categoryList] = useState<('-'|'+')[]>(['-','+']);
+
+  const onSelected = (i:('-'|'+'))=>{
+    setCategory(i);
+  };
+
 return(
   <Wrapper>
     <ul>
-    <li className="selected">支出</li>
-    <li>收入</li>
-  </ul>
+    {categoryList.map(i=>
+      <li key={i} className={category===i?"selected":""} onClick={()=>onSelected(i)}>
+        {categoryMap[i]}
+      </li>)}
+    </ul>
   </Wrapper>
 );
 }

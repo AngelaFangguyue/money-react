@@ -22,7 +22,7 @@ font-size: 14px;
 }
 `;
 
-function NotesSection() {
+const NotesSection:React.FC = ()=>{
 
   const [note,setNote] = useState('');
   const refInput = useRef<HTMLInputElement>(null);

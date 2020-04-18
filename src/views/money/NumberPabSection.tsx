@@ -56,7 +56,7 @@ flex-direction: column;
     }
    }
 `;
-function NumberPadSection() {
+const NumberPadSection:React.FC = ()=>{
   return(
     <Wrapper>
       <div className="output">100</div>
