@@ -28,7 +28,8 @@ const NotesSection:React.FC = ()=>{
   const refInput = useRef<HTMLInputElement>(null);
   const onBlur = ()=>{
     if(refInput.current!==null){
-      console.log(refInput.current.value);
+     console.log(refInput.current.value);
+      setNote(refInput.current.value);
     }
   };
 

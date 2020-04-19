@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Layout from 'components/Layout';
 import styled from 'styled-components';
 import TagsSection from './money/TagsSection';
@@ -12,12 +12,12 @@ flex-direction: column;
 `;
 function Money() {
 
-  const [selected,setSelected] = useState({
-    tags:[] as string[],
-    notes:'',
-    category:'1' as ('-'|'+'),
-    amount:0
-  });
+  // const [selected,setSelected] = useState({
+  //   tags:[] as string[],
+  //   notes:'',
+  //   category:'1' as ('-'|'+'),
+  //   amount:0
+  // });
 
   return (
     <MyLayout>
