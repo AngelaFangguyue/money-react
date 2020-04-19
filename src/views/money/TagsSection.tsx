@@ -34,11 +34,17 @@ justify-content: flex-end;
   }
 `;
 
-const TagsSection:React.FC = ()=>{
+type Props = {
+  pselectedTags:string[];
+  onChange:(tagsValue:string[])=>void;
+}
+
+const TagsSection:React.FC<Props> = (props)=>{
 
   const [tags,setTags] = useState<string[]>(['衣','食','住','行']);
-  const [selectedTags,setSelectedTags] = useState<string[]>([]);
+  //const [selectedTags,setSelectedTags] = useState<string[]>([]);
 
+  let pselectedTags = props.pselectedTags;
 
   const onAddTag = ()=>{
     const newTag = window.prompt("请输入新增加的标签名：");
@@ -48,17 +54,24 @@ const TagsSection:React.FC = ()=>{
   };
 
   const onToggleTag = (tag:string)=>{
-    if(selectedTags.indexOf(tag)>=0){
-      setSelectedTags((x)=>x.filter(i=>i!==tag));
-      console.log("onToggleTag1");
+    if(pselectedTags.indexOf(tag)>=0){
+      //setSelectedTags((x)=>x.filter(i=>i!==tag));
+      //console.log("onToggleTag1");
+      //console.log("1:",pselectedTags.filter(i=>i!==tag));
+      //console.log("1:",pselectedTags);
+      props.onChange(pselectedTags.filter(i=>i!==tag));
     }else{
-      setSelectedTags((x)=>[...x,tag]);
-      console.log("onToggleTag2");
+      //setSelectedTags((x)=>[...x,tag]);
+      //console.log("onToggleTag2");
+      //console.log("2:",[...pselectedTags,tag]);
+      //console.log("2:",pselectedTags);
+      props.onChange([...pselectedTags,tag]);
+      //props.onChange({tags:[...pselectedTags,tag]});
     }
   };
 
   const getClassName = (tag:string)=>{
-    return selectedTags.indexOf(tag)>=0?'selected':'w';
+    return pselectedTags.indexOf(tag)>=0?'selected':'w';
   };
 
   return (

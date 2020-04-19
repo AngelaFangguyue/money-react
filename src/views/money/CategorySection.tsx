@@ -30,20 +30,29 @@ border:2px solid blue;
     }
   }
 `;
-const CategorySection:React.FC = ()=>{
+
+type Props = {
+  pcategory:'-'|'+';
+  onChange:(i:'-'|'+')=>void;
+}
+
+const CategorySection:React.FC<Props> = (props)=>{
   const categoryMap = {'-':"支出",'+':"收入"};
-  const [category,setCategory] = useState<('-'|'+')>('-');
+  //const [category,setCategory] = useState<('-'|'+')>('-');
+  let pcategory = props.pcategory;
   const [categoryList] = useState<('-'|'+')[]>(['-','+']);
 
-  const onSelected = (i:('-'|'+'))=>{
-    setCategory(i);
-  };
+  // const onSelected = (i:('-'|'+'))=>{
+  //   //setCategory(i);
+  //   props.onChange(i);
+  // };
 
 return(
   <Wrapper>
     <ul>
     {categoryList.map(i=>
-      <li key={i} className={category===i?"selected":""} onClick={()=>onSelected(i)}>
+      <li key={i} className={pcategory===i?"selected":""} onClick={()=>props.onChange(i)}>
+        {/*<li key={i} className={pcategory===i?"selected":""} onClick={()=>onSelected(i)}>*/}
         {categoryMap[i]}
       </li>)}
     </ul>
