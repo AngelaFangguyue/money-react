@@ -11,7 +11,7 @@ type Props = {
 const NumberPadSection:React.FC<Props> = (props)=>{
 
   const [output,_setOutput] = useState('100');
-  let  poutput = props.poutput.toString();
+  //let  poutput = props.poutput.toString();
 
   const setOutput = (output:string)=>{
 

@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
+import useTags from 'useTags';
 
 const Wrapper = styled.section`
 background-color: #fff;
@@ -41,8 +42,11 @@ type Props = {
 
 const TagsSection:React.FC<Props> = (props)=>{
 
-  const [tags,setTags] = useState<string[]>(['衣','食','住','行']);
+  //const [tags,setTags] = useState<string[]>(['衣','食','住','行']);
   //const [selectedTags,setSelectedTags] = useState<string[]>([]);
+
+  const {tags,setTags} = useTags();
+  //console.log(useTags);
 
   let pselectedTags = props.pselectedTags;
 

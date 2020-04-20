@@ -33,3 +33,8 @@ button{
   height: 1em;
   display: inline-block;
 }
+.oneline{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
