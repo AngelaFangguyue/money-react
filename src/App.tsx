@@ -12,6 +12,7 @@ import Statistics from './views/Statistics';
 import Money from './views/Money';
 import Label from './views/Label';
 import styled from 'styled-components';
+import EditLabel from './views/EditLabel';
 
 const AppWrapper = styled.div`
 color:#333;
@@ -23,17 +24,20 @@ function App() {
     <AppWrapper>
     <Router>
         <Switch>
-          <Route path="/money">
+          <Route exact path="/money">
             <Money />
           </Route>
-          <Route path="/label">
+          <Route exact path="/label">
             <Label />
           </Route>
-          <Route path="/statistics">
+          <Route exact path="/label/:tag1">
+            <EditLabel />
+          </Route>
+          <Route exact path="/statistics">
             <Statistics />
           </Route>
-          <Redirect exact from="/" to="/money"/>
-          <Route path="*">
+          <Redirect exact  from="/" to="/money"/>
+          <Route  path="*">
             <Nofound/>
           </Route>
         </Switch>

@@ -3,6 +3,7 @@ import Layout from 'components/Layout';
 import useTags from 'useTags';
 import styled from 'styled-components';
 import Icon from '../components/Icon';
+import {Link} from 'react-router-dom';
 
 const Ul = styled.ul`
 font-size: 16px;
@@ -15,6 +16,9 @@ background-color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    >a{
+    
+    }
   }
 `;
 
@@ -47,8 +51,10 @@ function Label() {
       <Ul>
         {tags.map(tag=>
           <li key={tag}>
+            <Link to={'/label/'+ tag}>
             <span className="oneline">{tag}</span>
             <Icon name="right"/>
+            </Link>
           </li>
         )}
       </Ul>
