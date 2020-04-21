@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import useTags from 'useTags';
+import createId from 'createId';
 
 const Wrapper = styled.section`
 background-color: #fff;
@@ -36,8 +37,8 @@ justify-content: flex-end;
 `;
 
 type Props = {
-  pselectedTags:string[];
-  onChange:(tagsValue:string[])=>void;
+  pselectedTagIds:number[];
+  onChange:(tagsId:number[])=>void;
 }
 
 const TagsSection:React.FC<Props> = (props)=>{
@@ -48,40 +49,42 @@ const TagsSection:React.FC<Props> = (props)=>{
   const {tags,setTags} = useTags();
   //console.log(useTags);
 
-  let pselectedTags = props.pselectedTags;
+  let pselectedTagIds = props.pselectedTagIds;
 
   const onAddTag = ()=>{
     const newTag = window.prompt("请输入新增加的标签名：");
     if(newTag!==null){
-        setTags((a)=>[...a,newTag]);
+        setTags((a)=>[...a,{id:(new createId()).value,name:newTag}]);
     }
   };
 
-  const onToggleTag = (tag:string)=>{
-    if(pselectedTags.indexOf(tag)>=0){
+  const onToggleTag = (tagId:number)=>{
+    if(pselectedTagIds.indexOf(tagId)>=0){
       //setSelectedTags((x)=>x.filter(i=>i!==tag));
       //console.log("onToggleTag1");
       //console.log("1:",pselectedTags.filter(i=>i!==tag));
       //console.log("1:",pselectedTags);
-      props.onChange(pselectedTags.filter(i=>i!==tag));
+
+      props.onChange(pselectedTagIds.filter(i=>i!==tagId));
+
     }else{
       //setSelectedTags((x)=>[...x,tag]);
       //console.log("onToggleTag2");
       //console.log("2:",[...pselectedTags,tag]);
       //console.log("2:",pselectedTags);
-      props.onChange([...pselectedTags,tag]);
+      props.onChange([...pselectedTagIds,tagId]);
       //props.onChange({tags:[...pselectedTags,tag]});
     }
   };
 
-  const getClassName = (tag:string)=>{
-    return pselectedTags.indexOf(tag)>=0?'selected':'w';
+  const getClassName = (tagId:number)=>{
+    return pselectedTagIds.indexOf(tagId)>=0?'selected':'w';
   };
 
   return (
   <Wrapper>
    <ul>
-      {tags.map(tag=><li key={tag} onClick={()=>onToggleTag(tag)} className={getClassName(tag)}>{tag}</li>)}
+      {tags.map(tag=><li key={tag.id} onClick={()=>onToggleTag(tag.id)} className={getClassName(tag.id)}>{tag.name}</li>)}
    </ul>
    <button onClick={onAddTag}>新增标签</button>
   </Wrapper>

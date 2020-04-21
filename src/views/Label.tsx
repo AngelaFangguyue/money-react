@@ -44,15 +44,15 @@ height: 16px;
 
 function Label() {
 
-  const {tags,setTags} = useTags();
-
+  //const {tags,setTags} = useTags();
+  const {tags} = useTags();
   return (
     <Layout>
       <Ul>
         {tags.map(tag=>
-          <li key={tag}>
-            <Link to={'/label/'+ tag}>
-            <span className="oneline">{tag}</span>
+          <li key={tag.id}>
+            <Link to={'/label/'+ tag.id}>
+            <span className="oneline">{tag.id}:{tag.name}</span>
             <Icon name="right"/>
             </Link>
           </li>

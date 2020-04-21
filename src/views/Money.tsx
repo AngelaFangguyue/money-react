@@ -13,7 +13,7 @@ flex-direction: column;
 function Money() {
 
   const [selected,setSelected] = useState({
-    tags:[] as string[],
+    tagIds: [] as number[] ,
     notes:'',
     category:'-' as ('-'|'+'),
     amount:12
@@ -27,7 +27,7 @@ function Money() {
 
   return (
     <MyLayout>
-      {selected.tags.join(',')}
+      {selected.tagIds.join(',')}
       <hr/>
       {selected.notes}
       <hr/>
@@ -35,9 +35,9 @@ function Money() {
       <hr/>
       {selected.amount}
       <hr/>
-      <TagsSection pselectedTags={selected.tags}
-                   onChange={(tags)=>
-                     onChange1({tags})
+      <TagsSection pselectedTagIds={selected.tagIds}
+                   onChange={(tagIds)=>
+                     onChange1({tagIds})
                      //setSelected({...selected,tags: tags})
                    }/>
       <NotesSection pnotes={selected.notes}

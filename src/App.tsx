@@ -30,7 +30,7 @@ function App() {
           <Route exact path="/label">
             <Label />
           </Route>
-          <Route exact path="/label/:tag1">
+          <Route exact path="/label/:tagId">
             <EditLabel />
           </Route>
           <Route exact path="/statistics">
