@@ -2,8 +2,10 @@ import React from 'react';
 import Layout from 'components/Layout';
 import useTags from 'useTags';
 import styled from 'styled-components';
-import Icon from '../components/Icon';
+import Icon from '/components/Icon';
 import {Link} from 'react-router-dom';
+import {Button} from '/components/Button';
+import Center from '/components/Center';
 
 const Ul = styled.ul`
 font-size: 16px;
@@ -22,21 +24,21 @@ background-color: white;
   }
 `;
 
-const Button = styled.button`
-  font-size: 18px;
-  border:none;
-  padding: 8px 12px;
-  border-radius: 4px;
-  background-color:#666 ;
-  color: white;
-`;
+// const Button = styled.button`
+//   font-size: 18px;
+//   border:none;
+//   padding: 8px 12px;
+//   border-radius: 4px;
+//   background-color:#666 ;
+//   color: white;
+// `;
 
-const Center = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-`;
+// const Center = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   flex-direction: column;
+// `;
 
 const Space = styled.div`
 height: 16px;

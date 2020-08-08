@@ -50,7 +50,7 @@ function Nav(){
         </NavLink>
       </li>
       <li>
-        <NavLink to="/label" activeClassName="selected">
+        <NavLink to="/label" exact activeClassName="selected">
           <Icon name="label"/>
           <span>标签</span>
         </NavLink>
