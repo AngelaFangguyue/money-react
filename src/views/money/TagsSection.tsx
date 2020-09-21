@@ -56,7 +56,7 @@ const TagsSection:React.FC<Props> = (props)=>{
   const onAddTag = ()=>{
     const newTag = window.prompt("请输入新增加的标签名：");
     if(newTag!==null){
-        setTags((a)=>[...a,{id:(new createId()).value,name:newTag}]);
+        setTags((a)=>[...a,{id:createId(),name:newTag}]);
     }
   };
 
