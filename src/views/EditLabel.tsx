@@ -25,7 +25,7 @@ const EditLabel:React.FC = ()=>{
   const {tagId} = useParams<Params>();
 
   const {findTag,tags} = useTags();
-  console.log("tagstagstags:",tags)
+  console.log("tags:",tags)
 
   const tag =   findTag(parseInt(tagId));
   console.log(tagId,  tag);
@@ -39,7 +39,7 @@ const EditLabel:React.FC = ()=>{
     <Layout>
       <Topbar>
         <Icon name="left"/>
-        <span>编辑标签</span>
+        <span >编辑标签</span>
         <Icon/>
       </Topbar>
       <div>
@@ -58,7 +58,7 @@ const EditLabel:React.FC = ()=>{
        {/*       onChange={(e)=>{console.log(e.target);if(e.target){console.log(e.target.value)}}}></Input>*/}
       </div>
       <div>
-        hi,EditLabel,{tag.id}:{tag.name}
+        hi,EditLabel
         <Button>删除标签</Button>
       </div>
 

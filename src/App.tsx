@@ -12,7 +12,8 @@ import Statistics from './views/Statistics';
 import Money from './views/Money';
 import Label from './views/Label';
 import styled from 'styled-components';
-import EditLabel from './views/EditLabel';
+//import EditLabel from './views/EditLabel';
+import Tag from './views/Tag';
 
 const AppWrapper = styled.div`
 color:#333;
@@ -31,7 +32,8 @@ function App() {
             <Label />
           </Route>
           <Route exact path="/label/:tagId">
-            <EditLabel />
+            {/*<EditLabel />*/}
+            <Tag/>
           </Route>
           <Route exact path="/statistics">
             <Statistics />

@@ -46,7 +46,7 @@ const Ul = styled.ul`
 
 function Label() {
   //const {tags,setTags} = useTags();
-  const { tags } = useTags();
+  const { tags,addTag } = useTags();
   return (
     <Layout>
       <Ul>
@@ -67,7 +67,7 @@ function Label() {
         <Space></Space>
         <Space></Space>
         <Space></Space>
-        <Button>新增标签</Button>
+        <Button onClick={addTag}>新增标签</Button>
         <Space></Space>
       </Center>
     </Layout>
