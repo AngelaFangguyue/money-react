@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import useTags from 'useTags';
-import createId from 'createId';
+import useTags from '../../hooks/useTags';
+import createId from '../../lib/createId';
 
 const Wrapper = styled.section`
 background-color: #fff;
@@ -38,6 +38,8 @@ justify-content: flex-end;
 
 type Props = {
   pselectedTagIds:number[];
+  
+
   onChange:(tagsId:number[])=>void;
 }
 
