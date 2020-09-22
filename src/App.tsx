@@ -1,29 +1,28 @@
-import React from 'react';
+import React from "react";
 //引入路由相关组件
 import {
   HashRouter as Router,
   Switch,
   Route,
-  Redirect
+  Redirect,
 } from "react-router-dom";
 //引入styled-components相关组件
-import Nofound from './views/NoFound';
-import Statistics from './views/Statistics';
-import Money from './views/Money';
-import Label from './views/Label';
-import styled from 'styled-components';
+import Nofound from "./views/NoFound";
+import Statistics from "./views/Statistics";
+import Money from "./views/Money";
+import Label from "./views/Label";
+import styled from "styled-components";
 //import EditLabel from './views/EditLabel';
-import Tag from './views/Tag';
+import Tag from "./views/Tag";
 
 const AppWrapper = styled.div`
-color:#333;
+  color: #333;
 `;
-
 
 function App() {
   return (
     <AppWrapper>
-    <Router>
+      <Router>
         <Switch>
           <Route exact path="/money">
             <Money />
@@ -33,17 +32,17 @@ function App() {
           </Route>
           <Route exact path="/label/:tagId">
             {/*<EditLabel />*/}
-            <Tag/>
+            <Tag />
           </Route>
           <Route exact path="/statistics">
             <Statistics />
           </Route>
-          <Redirect exact  from="/" to="/money"/>
-          <Route  path="*">
-            <Nofound/>
+          <Redirect exact from="/" to="/label" />
+          <Route path="*">
+            <Nofound />
           </Route>
         </Switch>
-    </Router>
+      </Router>
     </AppWrapper>
   );
 }

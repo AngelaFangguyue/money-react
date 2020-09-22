@@ -15,20 +15,22 @@ type tagType = {
 const useTags = () => {
   //  const [tags,setTags] = useState<tagType[]>(defauleTags );
 
-  const [tags, setTags] = useState<tagType[]>([]);
+  // const [tags, setTags] = useState<tagType[]>([
+  //   { id: 1, name: "衣" },
+  //   { id: 2, name: "食" },
+  //   { id: 3, name: "住" },
+  //   { id: 4, name: "行" },
+  // ]);
 
+  const [tags, setTags] = useState<tagType[]>([]);
 
   console.log("11tags:", tags);
 
   useEffect(() => {
-
-
-
     let localTags = JSON.parse(window.localStorage.getItem("tags1") || "[]");
     console.log("localstorage:", localTags);
 
     if (localTags.length < 1) {
-
       localTags = [
         { id: createId(), name: "衣" },
         { id: createId(), name: "食" },
@@ -51,7 +53,7 @@ const useTags = () => {
     return tags.filter((tag) => tag.id === tagId)[0];
   };
 
-  const findTagName = (tagId:number) => {
+  const findTagName = (tagId: number) => {
     let tag = findTag(tagId);
     if (tag) {
       return tag.name;
@@ -60,7 +62,7 @@ const useTags = () => {
     }
   };
 
-  const findTagIndex = (tagId:string) => {
+  const findTagIndex = (tagId: string) => {
     let index = -1;
     for (let i = 0; i < tags.length; i++) {
       if (tags[i].id === parseInt(tagId)) {
@@ -71,7 +73,7 @@ const useTags = () => {
     return index;
   };
 
-  const updateTag = (tagId:number, newTagName:string) => {
+  const updateTag = (tagId: number, newTagName: string) => {
     // let index = findTagIndex(tagId);
     // let updatedTag = JSON.parse(JSON.stringify(tags));
     // updatedTag.splice(index, 1, { id: tagId, name: newTagName });
@@ -90,7 +92,7 @@ const useTags = () => {
     //console.log("update>tags:", tags);
   };
 
-  const deleteTag = (tagId:number) => {
+  const deleteTag = (tagId: number) => {
     // let index = findTagIndex(tagId);
     // let updatedTag = JSON.parse(JSON.stringify(tags));
     // updatedTag.splice(index, 1);
@@ -110,7 +112,16 @@ const useTags = () => {
   };
 
   console.log("55tags:", tags);
-  return { tags, setTags, findTag,addTag,deleteTag,updateTag,findTagIndex,findTagName };
+  return {
+    tags,
+    setTags,
+    findTag,
+    addTag,
+    deleteTag,
+    updateTag,
+    findTagIndex,
+    findTagName,
+  };
 };
 
 export default useTags;
