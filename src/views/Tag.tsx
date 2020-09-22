@@ -13,7 +13,11 @@ const Tag: React.FC = (props) => {
   console.log("tagId:", tagId);
   const tag = findTag(parseInt(tagId));
   console.log("tag:", tag);
-  return <div>111</div>;
+  return (
+    <div>
+      111---{tag.id}---{tag.name}
+    </div>
+  );
 };
 
 export default Tag;
