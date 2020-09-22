@@ -46,20 +46,20 @@ const Ul = styled.ul`
 
 function Label() {
   //const {tags,setTags} = useTags();
-  const { tags,addTag } = useTags();
+  const { tags, addTag } = useTags();
   return (
     <Layout>
       <Ul>
         {tags.map((tag) => {
           return (
-            <li key={tag.id}>
-              <Link to={"/label/" + tag.id}>
+            <Link to={"/label/" + tag.id}>
+              <li key={tag.id}>
                 <span className="oneline">
                   {tag.id}:{tag.name}
                 </span>
                 <Icon name="right" />
-              </Link>
-            </li>
+              </li>
+            </Link>
           );
         })}
       </Ul>
